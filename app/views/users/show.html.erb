@@ -10,10 +10,14 @@
   <%= @user.email %>
 </p>
 
-<p>
-  <strong>First micropost:</strong>
-  <%= @user.microposts.first.content %>
-</p>
+<% if @user.microposts.size > 0 %>
+  <p>
+    <strong>First micropost:</strong>
+    <%= @user.microposts.first.content %>
+  </p>
+<% else %>
+  <p>No micropost yet</p>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
